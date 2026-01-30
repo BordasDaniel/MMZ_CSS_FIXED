@@ -21,6 +21,7 @@
   margin-bottom: 20px;
   letter-spacing: 3px;
   text-shadow: 0 0 12px #00ffef;
+  text-align: center;
 }
 
 .contact-info p {
@@ -185,3 +186,4 @@
     padding: 10px 24px;
   }
 }
+

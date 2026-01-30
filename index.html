@@ -214,25 +214,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Duplikált elemek – példa -->
-          <div class="slideshow-item">
-            <img src="sources/images/Orgona.jpg" alt="Orgona">
-            <div class="slideshow-overlay"></div>
-            <div class="slideshow-caption">
-              <div class="caption-title">Orgonabokor (Album)</div>
-              <div class="caption-artist">Manuel</div>
-              <div class="streaming-links">
-                <a href="https://open.spotify.com/track/6PfQxSKdb1T71Y6rotJ5a9?si=6640903e482442a9" target="_blank">
-                  <i class="bi bi-spotify"></i>
-                </a>
-                <a href="https://music.apple.com/hu/album/orgonabokor/1795742501?l=hu" target="_blank">
-                  <i class="bi bi-apple"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- ... további duplikált elemek ha vannak ... -->
         </div>
       </div>
     </main>
@@ -379,6 +360,21 @@
     if (albums.length > 0) {
       document.getElementById("albumsListBtn")?.style.display = "block";
     }
+  </script>
+
+  <!-- Slideshow smooth infinite scroll -->
+  <script>
+    window.addEventListener('load', () => {
+      const track = document.querySelector('.slideshow-track');
+      if (!track) return;
+
+      // Összes eredeti elem klónozása a smooth infinite scrollhoz
+      const items = Array.from(track.children);
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    });
   </script>
 
 </body>
