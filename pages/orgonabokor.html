@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Orgonabokor</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="../sources/css/album.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="../sources/scripts/search.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">MMZ</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Keresés...">
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+      <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li> 
+
+    <!-- Bejelentkezett felhaszn�l�knak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELT�LT�S</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+
+    <main class="album-main">
+      <img src="../sources/images/Orgona.jpg" alt="Orgonabokor" class="album-cover">
+      <h1 class="album-title">Orgonabokor</h1>
+      <h2 class="album-artist">Manuel</h2>
+      <p class="album-genre-year">POP - 2025</p>
+      <div class="album-streaming-links">
+        <a href="https://open.spotify.com/track/6PfQxSKdb1T71Y6rotJ5a9?si=6640903e482442a9" target="_blank">
+          <i class="bi bi-spotify"></i>
+        </a>
+        <a href="https://music.apple.com/hu/album/orgonabokor/1795742501?l=hu" target="_blank">
+          <i class="bi bi-apple"></i>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div class="back-to-home">
+    <a href="../index.html">← Vissza</a>
+  </div>
+
+<script>
+// Bejelentkezett állapot alapján mutatja/elrejti az albumos menüpontokat
+function updateAuthenticatedMenu() {
+  const user = localStorage.getItem('loggedInUser');
+  const authMenu = document.getElementById('authenticatedMenuItems');
+
+  if (user && authMenu) {
+    authMenu.style.display = 'block';
+  } else if (authMenu) {
+    authMenu.style.display = 'none';
+  }
+}
+
+// Oldal betöltésekor ellenőrizzük
+window.addEventListener('load', updateAuthenticatedMenu);
+</script>
+
+</body>
+</html>
+
+

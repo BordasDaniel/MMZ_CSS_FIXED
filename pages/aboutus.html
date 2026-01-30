@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Rólunk</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="../sources/scripts/search.js"></script>
+</head>
+<body>
+
+<!-- EGYSÉGES HEADER -->
+<header>
+  <div class="logo">MMZ</div>
+
+  <div class="header-center">
+    <div class="search-bar">
+      <span class="search-icon"></span>
+      <input type="text" placeholder="Keresés...">
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div id="auth-links" class="auth-links">
+      <a href="login.html" class="login-btn">Bejelentkezés</a>
+      <span class="divider">|</span>
+      <a href="register.html" class="login-btn">Regisztráció</a>
+    </div>
+
+    <div id="user-profile" class="user-profile" style="display:none;">
+      <button id="profileBtn" class="profile-btn">
+        <img id="headerProfileImg" class="header-profile-img" src="" alt="Profilkép">
+        <div class="header-name-container">
+          <span id="userNameDisplay" class="user-name"></span>
+          <div class="artist-badge-header">
+            <span class="artist-label-header">Artist</span>
+            <span class="verified-check-header">✔</span>
+          </div>
+        </div>
+      </button>
+
+      <div id="profileDropdown" class="profile-dropdown">
+        <a href="profile.html">Profil</a>
+        <div id="dropdownUploadLink" style="display:none;">
+          <a href="album_upload.html">Album feltöltés</a>
+        </div>
+        <hr>
+        <button id="logoutBtn">Kijelentkezés</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrapper">
+  <nav>
+    <ul>
+      <li><a href="../index.html">Kezdőlap</a></li>
+      <li><a href="music.html">Zenék</a></li>
+      <li><a href="policy.html">ÁSZF</a></li>
+      <li><a href="promo.html">Promóció</a></li>
+      <li><a href="prods.html">Előadók</a></li>
+      <li><a href="contact.html">Kapcsolat</a></li>
+      <li><a href="aboutus.html">Rólunk</a></li>
+
+      <div id="authenticatedMenuItems" style="display:none;">
+        <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+        <li><a href="albums_list.html">Albumok listája</a></li>
+      </div>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Rólunk – MMZ Disztribútor</h1>
+    <h2 class="promo-content">
+      <p><strong>Az MMZ Disztribútor egy magyar disztribúciós szolgáltató, amely immár 1 éve segíti a hazai zenészeket abban, hogy zenéjük eljusson a hallgatókhoz a digitális platformokon.</strong></p>
+      
+      <p>A csapatot Páll Máté, Bastyúr Milán és Sümegi Zétény alapította azzal a céllal, hogy egy olyan alternatívát hozzunk létre, amely valódi támogatást nyújt a tehetséges magyar előadók, különösen a fiatal, feltörekvő zenészek számára.</p>
+      
+      <p>Küldetésünk, hogy bevonzzuk és támogassuk azokat az alkotókat, akik hisznek a zenéjükben, de még nem rendelkeznek a szükséges háttérrel a megjelenések és a promóció terén.
+      Az MMZ Disztribútor nem kér el semmilyen pénzt a disztribúciós szolgáltatásaiért – ezzel is segítve, hogy a zenészek akadályok nélkül fókuszálhassanak az alkotásra és a fejlődésre.</p>
+
+      <p>Hiszünk abban, hogy a tehetség számít, nem a pénz.</p>
+    </h2>
+  </main>
+</div>
+
+<!-- 🔙 VISSZA GOMB – CONTACT.HTML-BŐL ÁTVÉVE -->
+<div class="back-to-home">
+  <a href="../index.html">← Vissza</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-social">
+      <a href="#"><i class="bi bi-youtube"></i></a>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-twitter-x"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+    </div>
+    <div class="footer-copyright">
+      © 2026 MMZ. Minden jog fenntartva.
+    </div>
+  </div>
+
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Hasznos hivatkozások</h4>
+      <ul>
+        <li><a href="register.html" class="auth-only-register">Regisztráció</a></li>
+        <li><a href="login.html" class="auth-only-login">Bejelentkezés</a></li>
+        <li><a href="contact.html">Kapcsolat</a></li>
+        <li><a href="promo.html">Promóció</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Cég</h4>
+      <ul>
+        <li><a href="aboutus.html">Rólunk</a></li>
+        <li><a href="prods.html">Előadók</a></li>
+        <li><a href="policy.html">ÁSZF</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Szolgáltatások</h4>
+      <ul>
+        <li><a href="album_upload.html" class="auth-only-service">Album feltöltés</a></li>
+        <li><a href="track_upload.html" class="auth-only-service">Track feltöltés</a></li>
+        <li><a href="distribution.html">Digitális disztribúció</a></li>
+        <li><a href="promotion.html">Promóciós támogatás</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <a href="policy.html">Adatvédelmi szabályzat</a>
+    <a href="policy.html">Sütiszabályzat</a>
+    <a href="policy.html">Felhasználási feltételek</a>
+    <a href="impresszum.html">Impresszum</a>
+  </div>
+</footer>
+
+<script>
+const DEFAULT_AVATAR = "https://www.shutterstock.com/image-illustration/neon-glowing-user-icon-profile-260nw-2462175375.jpg";
+
+function updateHeaderAndMenu() {
+  const userJSON = localStorage.getItem('loggedInUser');
+  const authLinks = document.getElementById('auth-links');
+  const userProfile = document.getElementById('user-profile');
+  const authMenu = document.getElementById('authenticatedMenuItems');
+  const dropdownLink = document.getElementById('dropdownUploadLink');
+
+  if (userJSON) {
+    const user = JSON.parse(userJSON);
+    const fullName = `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.email;
+
+    authLinks.style.display = 'none';
+    userProfile.style.display = 'flex';
+    document.getElementById('headerProfileImg').src = user.profilePic || DEFAULT_AVATAR;
+    document.getElementById('userNameDisplay').textContent = fullName;
+
+    authMenu.style.display = 'block';
+    dropdownLink.style.display = 'block';
+  } else {
+    authLinks.style.display = 'flex';
+    userProfile.style.display = 'none';
+    authMenu.style.display = 'none';
+  }
+}
+
+function updateFooterAuthLinks() {
+  const loggedIn = !!localStorage.getItem('loggedInUser');
+
+  document.querySelectorAll('.auth-only-register, .auth-only-login')
+    .forEach(el => el.style.display = loggedIn ? 'none' : 'list-item');
+
+  document.querySelectorAll('.auth-only-service')
+    .forEach(el => el.style.display = loggedIn ? 'list-item' : 'none');
+}
+
+window.addEventListener('load', () => {
+  updateHeaderAndMenu();
+  updateFooterAuthLinks();
+
+  document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser');
+    location.href = '../index.html';
+  });
+});
+</script>
+
+</body>
+</html>

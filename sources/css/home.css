@@ -1,0 +1,137 @@
+/* Főoldal slideshow és galéria */
+
+/* Slideshow container */
+.slideshow-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: hidden;
+  border: 3px solid #00ffef;
+  background: rgba(1, 65, 95, 0.4);
+  box-shadow: 0 0 20px #00ffef, inset 0 0 40px rgba(1, 65, 95, 0.4);
+  padding: 20px 0;
+}
+
+.slideshow-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.slideshow-item {
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 15px;
+  overflow: hidden;
+  border: 1px dashed #00ffef;
+  box-shadow: 0 0 15px rgba(1, 65, 95, 0.4);
+}
+
+.slideshow-item img {
+  height: 400px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.slideshow-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Átlátszó kék overlay hoverkor */
+.slideshow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 239, 0.15);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slideshow-item:hover .slideshow-overlay {
+  opacity: 1;
+}
+
+/* Slideshow feliratok */
+.slideshow-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #00ffef;
+  font-weight: bold;
+  text-shadow: 0 0 15px #00ffef;
+  opacity: 1 !important;
+  z-index: 2;
+}
+
+.caption-title {
+  font-size: 1.8rem;
+}
+
+.caption-artist {
+  font-size: 1.4rem;
+  margin-top: 8px;
+  display: block;
+}
+
+/* Streaming linkek */
+.streaming-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.streaming-links a {
+  color: #00ffef;
+  font-size: 2rem;
+  text-shadow: 0 0 15px #00ffef;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.streaming-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 25px #00ffef;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.slideshow-item:hover .slideshow-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animációk */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slideshow-container:hover .slideshow-track {
+  animation-play-state: paused;
+}
+
+/* Mobilra optimalizálás */
+@media (max-width: 900px) {
+  .slideshow-item img {
+    height: 250px;
+  }
+  
+  .slideshow-caption {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+}

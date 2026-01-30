@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Zenék</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/music.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="../sources/scripts/search.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">MMZ</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Keresés...">
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+    <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li> 
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+
+    <main>
+      <div class="mosaic-gallery">
+        <!-- Manuel - Orgonabokor -->
+        <div class="mosaic-item" data-page="orgonabokor.html">
+          <img src="../sources/images/Orgona.jpg" alt="Orgonabokor">
+          <div class="item-title">Orgonabokor (Album)</div>
+          <div class="item-creator">Manuel</div>
+        </div>
+
+        <!-- Mehringer - ÉDEN -->
+        <div class="mosaic-item" data-page="eden.html">
+          <img src="../sources/images/ÉDEN.jpg" alt="ÉDEN">
+          <div class="item-title">ÉDEN</div>
+          <div class="item-creator">Mehringer</div>
+        </div>
+
+        <!-- gyuris - gyógyító frekvenciák -->
+        <div class="mosaic-item" data-page="gyogyito-frekvenciak.html">
+          <img src="../sources/images/gyógyító.png" alt="gyógyító frekvenciák">
+          <div class="item-title">gyógyító frekvenciák (Album)</div>
+          <div class="item-creator">gyuris</div>
+        </div>
+
+        <!-- gyuris - hóangyal -->
+        <div class="mosaic-item" data-page="hoangyal.html">
+          <img src="../sources/images/hóangyal.png" alt="hóangyal">
+          <div class="item-title">hóangyal</div>
+          <div class="item-creator">gyuris</div>
+        </div>
+
+        <!-- Mario - Kimaradás -->
+        <div class="mosaic-item" data-page="kimaradas.html">
+          <img src="../sources/images/Kimaradás.jpg" alt="Kimaradás">
+          <div class="item-title">Kimaradás</div>
+          <div class="item-creator">Mario</div>
+        </div>
+
+        <!-- AKC Misi - Vigyázz magadra, jó szórakozást -->
+        <div class="mosaic-item" data-page="vigyazz-magadra.html">
+          <img src="../sources/images/Vigyázz_magadra.jpg" alt="Vigyázz magadra, jó szórakozást">
+          <div class="item-title">Vigyázz magadra, jó szórakozást</div>
+          <div class="item-creator">AKC Misi</div>
+        </div>
+
+        <!-- matro - GLAMOUR -->
+        <div class="mosaic-item" data-page="glamour.html">
+          <img src="../sources/images/GLAMOUR.jpg" alt="GLAMOUR">
+          <div class="item-title">GLAMOUR (Album)</div>
+          <div class="item-creator">matro</div>
+        </div>
+
+        <!-- Bruno X Spacc - DJV -->
+        <div class="mosaic-item" data-page="djv.html">
+          <img src="../sources/images/djv.jpg" alt="DJV">
+          <div class="item-title">DJV</div>
+          <div class="item-creator">Bruno X Spacc</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="back-to-home">
+    <a href="../index.html">← Vissza</a>
+  </div>
+
+  <!-- FOOTER – egységesen minden oldalon -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-social">
+        <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copyright">
+        © 2026 MMZ. Minden jog fenntartva.
+      </div>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Hasznos hivatkozások</h4>
+        <ul>
+          <li><a href="register.html" class="auth-only-register">Regisztráció</a></li>
+          <li><a href="login.html" class="auth-only-login">Bejelentkezés</a></li>
+          <li><a href="contact.html">Kapcsolat</a></li>
+          <li><a href="promo.html">Promóció</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Cég</h4>
+        <ul>
+          <li><a href="aboutus.html">Rólunk</a></li>
+          <li><a href="prods.html">Előadók</a></li>
+          <li><a href="policy.html">ÁSZF</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Szolgáltatások</h4>
+        <ul>
+          <li><a href="album_upload.html" class="auth-only-service">Album feltöltés</a></li>
+          <li><a href="track_upload.html" class="auth-only-service">Track feltöltés</a></li>
+          <li><a href="distribution.html">Digitális disztribúció</a></li>
+          <li><a href="promotion.html">Promóciós támogatás</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <a href="policy.html">Adatvédelmi szabályzat</a>
+      <a href="policy.html">Sütiszabályzat</a>
+      <a href="policy.html">Felhasználási feltételek</a>
+      <a href="impresszum.html">Impresszum</a>
+    </div>
+  </footer>
+
+  <script>
+    // Kattintás a mosaic item-re → átirányítás a megfelelő albumoldalra
+    document.querySelectorAll('.mosaic-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const page = item.getAttribute('data-page');
+        if (page) {
+          window.location.href = page;
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Bejelentkezett állapot alapján mutatja/elrejti az albumos menüpontokat
+    function updateAuthenticatedMenu() {
+      const user = localStorage.getItem('loggedInUser');
+      const authMenu = document.getElementById('authenticatedMenuItems');
+
+      if (user && authMenu) {
+        authMenu.style.display = 'block';
+      } else if (authMenu) {
+        authMenu.style.display = 'none';
+      }
+    }
+
+    // Footer linkek dinamikus láthatósága (Regisztráció + Bejelentkezés csak kijelentkezve, Album/Track csak bejelentkezve)
+    function updateFooterAuthLinks() {
+      const isLoggedIn = !!localStorage.getItem('loggedInUser');
+
+      // Regisztráció + Bejelentkezés linkek – csak kijelentkezett állapotban látható
+      document.querySelectorAll('.auth-only-register, .auth-only-login').forEach(el => {
+        el.style.display = isLoggedIn ? 'none' : 'list-item';
+      });
+
+      // Album feltöltés + Track feltöltés – csak bejelentkezett állapotban látható
+      document.querySelectorAll('.auth-only-service').forEach(el => {
+        el.style.display = isLoggedIn ? 'list-item' : 'none';
+      });
+    }
+
+    // Oldal betöltésekor ellenőrizzük mindkettőt
+    window.addEventListener('load', () => {
+      updateAuthenticatedMenu();
+      updateFooterAuthLinks();
+    });
+  </script>
+
+</body>
+</html>
+

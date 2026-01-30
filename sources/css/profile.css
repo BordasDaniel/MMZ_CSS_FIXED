@@ -1,0 +1,47 @@
+/* Profile.html - Profil oldal */
+
+.profile-main {
+  padding: 40px 20px;
+  min-height: 70vh;
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.profile-avatar {
+  font-size: 100px;
+  color: var(--neon-cyan, #00ffff);
+  margin-bottom: 20px;
+}
+
+.profile-avatar i {
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.profile-info h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.profile-info p {
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.profile-info strong {
+  color: var(--neon-cyan, #00ffff);
+}
+
+.profile-actions {
+  margin-top: 40px;
+  text-align: center;
+}

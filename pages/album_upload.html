@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Album feltöltés</title>
+    <link rel="stylesheet" href="../sources/css/general.css">
+    <link rel="stylesheet" href="../sources/css/navbar.css">
+    <link rel="stylesheet" href="../sources/css/upload.css">
+    <link rel="stylesheet" href="../sources/css/footer.css">
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← VISSZA</button>
+
+<div class="page-container">
+
+    <h1 class="neon-title">ALBUM FELTÖLTÉS</h1>
+
+    <form class="album-form">
+
+        <!-- BAL OLDAL -->
+        <div class="form-left">
+
+            <label>EAN / UPC kód</label>
+            <input type="text" placeholder="EAN / UPC">
+
+            <label>Albumkód igénylés</label>
+            <select>
+                <option value="">Válassz</option>
+                <option value="igen">Igen</option>
+                <option value="nem">Nem</option>
+            </select>
+
+            <label>Zenekar / Előadó neve</label>
+            <input type="text" id="artistInput" placeholder="Zenekar / Előadó neve">
+
+            <label>Album címe</label>
+            <input type="text" id="titleInput" placeholder="Album címe">
+
+            <label>Album alcíme</label>
+            <input type="text">
+
+            <label>Eredeti megjelenés dátuma</label>
+            <input type="date">
+
+            <label>Digitális megjelenés dátuma</label>
+            <input type="datetime-local">
+
+            <label>Stílus</label>
+            <select>
+                <option value="">Válassz</option>
+                <option>Trap</option>
+                <option>Rap</option>
+                <option>Pop</option>
+                <option>Pop-Punk</option>
+                <option>R&B</option>
+                <option>Rock</option>
+                <option>Electronic</option>
+            </select>
+
+            <label>Továbbterjesztés</label>
+            <select>
+                <option value="">Válassz</option>
+                <option>Igen</option>
+                <option>Nem</option>
+            </select>
+
+            <label>Spotify Artist URL</label>
+            <input type="url" placeholder="https://open.spotify.com/artist/...">
+
+            <label>Apple Music Artist URL</label>
+            <input type="url" placeholder="https://music.apple.com/...">
+
+        </div>
+
+        <!-- JOBB OLDAL -->
+        <div class="form-right">
+
+            <div class="cover-upload">
+
+                <input
+                    type="file"
+                    id="coverInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <div class="cover-box" id="coverBox">
+                    <span>📤 Borító feltöltése</span>
+                </div>
+
+                <p class="error-text" id="errorText"></p>
+
+                <img id="previewImage" alt="Borító előnézet" style="display: none;">
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <!-- TRACK FELTÖLTÉS GOMB -->
+    <div class="track-upload-wrapper">
+        <a href="track_upload.html" class="track-upload-btn">
+            TRACK FELTÖLTÉSE
+        </a>
+    </div>
+
+</div>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<script src="../sources/scripts/album_upload.js"></script>
+
+</body>
+</html>
+

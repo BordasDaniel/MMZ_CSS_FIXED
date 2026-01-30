@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Elofizet�s kiv�laszt�sa</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+</head>
+<body>
+  <header>
+    <div class="logo">MMZ</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Keres�s...">
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+      <ul>
+        <li><a href="../index.html">Kezdolap</a></li>
+        <li><a href="music.html">Zen�k</a></li>
+        <li><a href="policy.html">�SZF</a></li>
+        <li><a href="promo.html">Prom�ci�</a></li>
+        <li><a href="prods.html">Eload�k</a></li>
+        <li><a href="contact.html">Kapcsolat</a></li>
+        <li><a href="aboutus.html">R�lunk</a></li>
+      </ul>
+    </nav>
+
+    <main class="page-container" style="text-align:center; max-width:1100px; margin:0 auto;">
+      <h1 class="neon-title" style="margin:40px 0;">V�lassz elofizet�si csomagot</h1>
+      <p style="margin-bottom:40px; font-size:1.2rem; color:#ccc;">
+        Ahhoz, hogy zen�det felt�lthesd �s terjeszthesd, elo kell fizetned. V�laszd ki a neked megfelelot!
+      </p>
+
+      <!-- Csomagok �sszehasonl�t� t�bl�zat (a te mint�d alapj�n) -->
+      <div class="comparison-table" style="overflow-x:auto; margin:40px 0;">
+        <table style="width:100%; border-collapse:collapse; background:rgba(0,255,239,0.05); border:1px solid #00ffef; border-radius:15px; overflow:hidden;">
+          <thead>
+            <tr style="background:rgba(0,255,239,0.15);">
+              <th style="padding:15px; border-bottom:1px solid #00ffef;">Jellemzo</th>
+              <th style="padding:15px; border-bottom:1px solid #00ffef; background:rgba(0,255,239,0.25);">Legenda</th>
+              <th style="padding:15px; border-bottom:1px solid #00ffef; background:rgba(0,255,239,0.1);">Zen�sz Plusz</th>
+              <th style="padding:15px; border-bottom:1px solid #00ffef;">Zen�sz</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:12px; border-bottom:1px solid #00ffef33;">�r (�vi)</td><td>89,99 $</td><td>44,99 $</td><td>24,99 $</td></tr>
+            <tr><td>Korl�tlan felt�lt�s</td><td>?</td><td>?</td><td>?</td></tr>
+            <tr><td>Korl�tlan dalok/eload�</td><td>?</td><td>?</td><td>?</td></tr>
+            <tr><td>Ellenorz�tt eload� pipa (Spotify)</td><td>?</td><td>?</td><td>?</td></tr>
+            <tr><td>Jogd�jfeloszt�s l�trehoz�sa</td><td>?</td><td>?</td><td>?</td></tr>
+            <tr><td>Mobilalkalmaz�s hozz�f�r�s</td><td>?</td><td>?</td><td>?</td></tr>
+            <tr><td>Napi streaming statisztik�k</td><td>?</td><td>?</td><td>�</td></tr>
+            <tr><td>Tesztelheto kiad�si d�tum</td><td>?</td><td>?</td><td>�</td></tr>
+            <tr><td>Egyedi iTunes �rak</td><td>?</td><td>?</td><td>�</td></tr>
+            <tr><td>1 TB f�jlmegoszt�s</td><td>?</td><td>�</td><td>�</td></tr>
+            <!-- ... tov�bbi sorok hasonl�an a mint�db�l -->
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:60px 0;">
+        <!-- Legend csomag -->
+        <div class="package-card" style="background:rgba(0,255,239,0.08); border:2px solid #00ffef; border-radius:20px; padding:30px; width:320px; box-shadow:0 0 30px rgba(0,255,239,0.3);">
+          <h2>Legenda</h2>
+          <p class="price" style="font-size:2.2rem; margin:20px 0;">89,99 $/�v</p>
+          <button class="primary-btn" onclick="selectPlan('legend')">V�lasztom</button>
+        </div>
+
+        <!-- Zen�sz Plusz (kiemelt) -->
+        <div class="package-card" style="background:rgba(0,255,239,0.15); border:3px solid #00ffef; border-radius:20px; padding:40px 30px; width:360px; box-shadow:0 0 50px rgba(0,255,239,0.5); transform:scale(1.08);">
+          <h2 style="color:#fff;">Zen�sz Plusz <span style="font-size:0.9rem; background:#00ffef; color:#000; padding:4px 10px; border-radius:20px;">Aj�nlott</span></h2>
+          <p class="price" style="font-size:2.8rem; margin:20px 0;">44,99 $/�v</p>
+          <button class="primary-btn" style="background:#00ffef; color:#000; font-weight:bold;" onclick="selectPlan('plusz')">V�lasztom</button>
+        </div>
+
+        <!-- Zen�sz -->
+        <div class="package-card" style="background:rgba(0,255,239,0.05); border:1px solid #00ffef66; border-radius:20px; padding:30px; width:320px;">
+          <h2>Zen�sz</h2>
+          <p class="price" style="font-size:2.2rem; margin:20px 0;">24,99 $/�v</p>
+          <button class="primary-btn" onclick="selectPlan('zenesz')">V�lasztom</button>
+        </div>
+      </div>
+
+      <p style="color:#888; font-size:0.95rem; margin-top:60px;">
+        Az elofizet�s �vente automatikusan meg�jul. B�rmikor lemondhat�. 100% royalties tied.
+      </p>
+    </main>
+  </div>
+
+  <script>
+    function selectPlan(plan) {
+      localStorage.setItem('selectedPlan', plan);
+      localStorage.setItem('planPrice', 
+        plan === 'legend' ? 89.99 :
+        plan === 'plusz' ? 44.99 : 24.99
+      );
+      window.location.href = 'payment.html';
+    }
+  </script>
+</body>
+</html>
+
+

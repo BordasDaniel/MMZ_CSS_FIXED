@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Előadók</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/prods.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="../sources/scripts/search.js"></script>
+
+  <!-- Inline CSS a modalhoz – hogy tutira ne csússzon szét -->
+  <style>
+    .ticket-modal {
+      position: fixed !important;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .ticket-modal.show {
+      display: flex !important;
+    }
+    .ticket-modal-content {
+      background: #0d1b2a;
+      border: 2px solid #00ffef;
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0,255,239,0.5);
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 36px;
+      color: #00ffef;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .close-modal:hover { color: #ff3366; }
+    .ticket-modal-content h2 {
+      color: #00ffef;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      color: #00ffef;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #00ffef;
+      border-radius: 6px;
+      color: white;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: #00ffef;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MMZ</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Keresés...">
+        </div>
+    </header>
+    <div class="wrapper">
+        <nav>
+        <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li> 
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+        </nav>
+        <main>
+    <h1>ELŐADÓK</h1>
+    <div class="prods-grid">
+      <div class="prod-card" data-prod="Manuel">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">Manuel</h3>
+        <p class="prod-desc">POP - TRAP</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/1O4dvMoyQSIClCii6DSai8?si=-pzUIVwOQICVLtPouG2Qhw" target="_blank" class="social-link spotify" title="Spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://music.apple.com/hu/artist/manuel/1486563086?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="Mehringer">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">Mehringer</h3>
+        <p class="prod-desc">POP - ALTERNATÍV ROCK</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/2onsfuh37zW0OHB3lFa3t1?si=iGTnFx-NQZmF4joDbLOKhQ" target="_blank" class="social-link spotify" title="Spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://soundcloud.com/mehringer" target="_blank" class="social-link soundcloud" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.apple.com/hu/artist/mehringer/1635950625?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="gyuris">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">gyuris</h3>
+        <p class="prod-desc">TRAP</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/19w3KViMCX0eq1UjNic2W9?si=03ym6eNXQrSDji2dDdGrYA" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://soundcloud.com/gyuris" target="_blank" class="social-link soundcloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.apple.com/hu/artist/gyuris/1353570324?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="Mario">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">Mario</h3>
+        <p class="prod-desc">R & B</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/0Qld3F5Dr62sYbuivSzEMw?si=OtaRZJBmT8q3SaNzG06rKw" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://music.apple.com/hu/artist/m%C3%A1ri%C3%B3/479718071?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="AKC_Misi">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">AKC Misi</h3>
+        <p class="prod-desc">TRAP</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/4pWRro00gdnq90CwBmSCtv?si=3Ah6F8xIQ5SmPHZRKuemKQ" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://soundcloud.com/akc-misi" target="_blank" class="social-link soundcloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.apple.com/hu/artist/akc-misi/1438391242?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="matro">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">matro</h3>
+        <p class="prod-desc">R & B - TRAP</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/2CSvDdxgY0AaBzvxbLLhcK?si=N6nM1GH7SZi0Er26DyX4Zw" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://soundcloud.com/user-59601331" target="_blank" class="social-link soundcloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://music.apple.com/hu/artist/matr0/1668596247?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+
+      <div class="prod-card" data-prod="BrunoXSpacc">
+        <div class="prod-avatar"><i class="fas fa-user"></i></div>
+        <h3 class="prod-name">Bruno X Spacc</h3>
+        <p class="prod-desc">TRAP - POP - AFRO</p>
+        <div class="prod-social-icons">
+          <a href="https://open.spotify.com/artist/5ALUgNuS421MZrrrAhM9Bv?si=u4FCFq5BR7KgDhnU0JpN8Q" target="_blank" class="social-link spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://music.apple.com/hu/artist/bruno-x-spacc/1519148459?l=hu" target="_blank" class="social-link apple-music" title="Apple Music"><i class="bi bi-apple"></i></a>
+        </div>
+        <button class="prod-ticket-btn">Fellépés szervezés/Booking</button>
+      </div>
+    </div>
+  </main>
+    </div>
+
+    <div class="back-to-home">
+      <a href="../index.html">← Vissza</a>
+    </div>
+
+    <!-- MODAL -->
+    <div id="ticketModal" class="ticket-modal">
+      <div class="ticket-modal-content">
+        <span class="close-modal" id="closeModal">×</span>
+        <h2>Közvetlen üzenet</h2>
+        <form id="ticketForm">
+          <div class="form-group">
+            <label for="name">Név *</label>
+            <input type="text" id="name" placeholder="A neved" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" placeholder="email@cim.hu" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Tárgy *</label>
+            <input type="text" id="subject" placeholder="Pl. Booking - Manuel" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Üzenet *</label>
+            <textarea id="message" rows="6" placeholder="Írd ide az üzeneted..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Küldés</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-social">
+          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+        <div class="footer-copyright">
+          © 2026 MMZ. Minden jog fenntartva.
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>Hasznos hivatkozások</h4>
+          <ul>
+            <li><a href="register.html" class="auth-only-register">Regisztráció</a></li>
+            <li><a href="login.html" class="auth-only-login">Bejelentkezés</a></li>
+            <li><a href="contact.html">Kapcsolat</a></li>
+            <li><a href="promo.html">Promóció</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Cég</h4>
+          <ul>
+            <li><a href="aboutus.html">Rólunk</a></li>
+            <li><a href="prods.html">Előadók</a></li>
+            <li><a href="policy.html">ÁSZF</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Szolgáltatások</h4>
+          <ul>
+            <li><a href="album_upload.html" class="auth-only-service">Album feltöltés</a></li>
+            <li><a href="track_upload.html" class="auth-only-service">Track feltöltés</a></li>
+            <li><a href="distribution.html">Digitális disztribúció</a></li>
+            <li><a href="promotion.html">Promóciós támogatás</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="policy.html">Adatvédelmi szabályzat</a>
+        <a href="policy.html">Sütiszabályzat</a>
+        <a href="policy.html">Felhasználási feltételek</a>
+        <a href="impresszum.html">Impresszum</a>
+      </div>
+    </footer>
+
+    <script>
+      // Bejelentkezett állapot menü
+      function updateAuthenticatedMenu() {
+        const user = localStorage.getItem('loggedInUser');
+        const authMenu = document.getElementById('authenticatedMenuItems');
+        if (user && authMenu) authMenu.style.display = 'block';
+        else if (authMenu) authMenu.style.display = 'none';
+      }
+
+      // Footer linkek
+      function updateFooterAuthLinks() {
+        const isLoggedIn = !!localStorage.getItem('loggedInUser');
+        document.querySelectorAll('.auth-only-register, .auth-only-login').forEach(el => {
+          el.style.display = isLoggedIn ? 'none' : 'list-item';
+        });
+        document.querySelectorAll('.auth-only-service').forEach(el => {
+          el.style.display = isLoggedIn ? 'list-item' : 'none';
+        });
+      }
+
+      // Booking modal logika – Edge-barát
+      document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('ticketModal');
+        const closeBtn = document.getElementById('closeModal');
+        const form = document.getElementById('ticketForm');
+        const subjectInput = document.getElementById('subject');
+
+        if (!modal) {
+          console.error('Modal nem található (id="ticketModal")');
+          return;
+        }
+
+        // Minden booking gombra
+        document.querySelectorAll('.prod-ticket-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const card = btn.closest('.prod-card');
+            const name = card ? card.querySelector('.prod-name').textContent.trim() : 'Előadó';
+            if (subjectInput) subjectInput.value = `Booking - ${name}`;
+            modal.classList.add('show');
+            console.log('Modal nyitva:', name);
+          });
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        }
+
+        window.addEventListener('click', e => {
+          if (e.target === modal) modal.classList.remove('show');
+        });
+
+        if (form) {
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Üzenet elküldve (teszt)');
+            modal.classList.remove('show');
+            form.reset();
+          });
+        }
+      });
+
+      window.addEventListener('load', () => {
+        updateAuthenticatedMenu();
+        updateFooterAuthLinks();
+      });
+    </script>
+</body>
+</html>
+

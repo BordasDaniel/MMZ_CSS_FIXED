@@ -1,0 +1,320 @@
+/* Header és navigáció */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px 20px;
+  border-bottom: 1px solid #00ffef;
+  margin-bottom: 40px;
+}
+
+/* Logo */
+.logo {
+  font-size: 3.8rem;
+  font-weight: bold;
+  letter-spacing: 14px;
+  text-shadow: 0 0 20px #00ffef;
+  animation: pulse 3s infinite alternate;
+  color: #00ffef;
+  text-decoration: none;
+}
+
+header a.logo {
+  color: #00ffef !important;
+  text-decoration: none;
+}
+
+header a.logo:visited,
+header a.logo:hover,
+header a.logo:active,
+header a.logo:focus {
+  color: #00ffef !important;
+  text-decoration: none;
+}
+
+/* Header jobb oldal */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-right: 20px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login gomb */
+.login-btn {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Auth linkek */
+.auth-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Keresősáv */
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 8px 50px 8px 15px;
+  font-size: 1rem;
+  width: 450px;
+  outline: none;
+  box-shadow: 0 0 15px rgba(1, 65, 95, 0.4);
+}
+
+.search-bar::after {
+  content: 'Q';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #00ffef;
+}
+
+/* Keresési dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 450px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid #00ffef;
+  box-shadow: 0 0 25px #00ffef;
+  max-height: 360px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  border-top: none;
+}
+
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 255, 239, 0.15);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  min-height: 80px;
+}
+
+.search-dropdown-item:hover {
+  background: rgba(0, 255, 239, 0.12);
+}
+
+.search-dropdown-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  margin-right: 20px;
+  border: 2px solid #00ffef;
+  box-shadow: 0 0 12px #00ffef;
+  flex-shrink: 0;
+}
+
+.search-dropdown-item .item-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-dropdown-item .single-line-text {
+  font-size: 1.4rem;
+  color: #00ffef;
+  text-shadow: 0 0 10px #00ffef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-dropdown-item .single-line-text .artist-name {
+  color: #cccccc;
+  font-weight: normal;
+}
+
+/* Profil gomb és dropdown */
+.user-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-profile svg {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user-profile svg:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px #00ffef);
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background 0.3s;
+}
+
+.profile-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.profile-icon {
+  font-size: 32px;
+  color: #fff;
+}
+
+/* Header profil kép */
+.header-profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Név container */
+.header-name-container {
+  margin-left: 12px;
+  text-align: left;
+}
+
+.user-name {
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px #00ffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+/* Artist badge header */
+.artist-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.artist-label-header {
+  font-size: 0.9em;
+}
+
+.verified-check-header {
+  color: #00ffff;
+  font-size: 1.2em;
+  text-shadow: 0 0 15px #00ffff;
+  font-weight: bold;
+}
+
+/* Profil dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #111;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.profile-dropdown.active {
+  display: flex;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+  background-color: #222;
+}
+
+.profile-dropdown button {
+  color: #ff4d4d;
+}
+
+.profile-dropdown button:hover {
+  background-color: #2a0000;
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 6px 0;
+}
+
+/* Mobilra optimalizálás */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .search-bar input {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .header-name-container {
+    display: none;
+  }
+  
+  .header-profile-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-name-container {
+    display: none;
+  }
+  
+  .header-profile-img {
+    width: 40px;
+    height: 40px;
+  }
+}

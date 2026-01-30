@@ -1,0 +1,62 @@
+/* Promo.html és Policy.html specifikus stílusok */
+
+/* Promóciós oldal címek felülírása */
+.promo-page main h1 {
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+.promo-page main h2 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.promo-page main h2 p {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.promo-page main h2 ul {
+  margin: 30px auto;
+  padding-left: 40px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.promo-page main h2 ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.promo-page main h2 ul li::marker {
+  color: #00ffef;
+}
+
+/* AboutUs oldal specifikus */
+.aboutus-page main h1 {
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  text-align: left;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+.aboutus-page main h2 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.aboutus-page main h2 p {
+  margin-bottom: 24px;
+  text-align: left;
+}

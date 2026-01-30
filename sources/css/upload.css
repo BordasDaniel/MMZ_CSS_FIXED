@@ -1,0 +1,223 @@
+/* Upload oldalak - Album és Track feltöltés */
+
+/* Album feltöltés form */
+.album-form {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.form-left {
+  flex: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 30px;
+  align-content: flex-start;
+}
+
+.form-left label {
+  grid-column: span 2;
+  color: #00f6ff;
+}
+
+.form-left input,
+.form-left select,
+.form-left textarea {
+  grid-column: span 2;
+  height: 44px;
+  padding: 10px 14px;
+  background: #0b0b0b;
+  border: 2px solid #00f6ff;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(0, 246, 255, 0.3);
+  resize: vertical;
+}
+
+.form-left textarea {
+  height: 90px;
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-right {
+  flex: 1;
+}
+
+/* Cover box */
+.cover-box {
+  height: 260px;
+  border: 2px dashed #00f6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f6ff;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
+}
+
+.cover-box:hover {
+  background: rgba(0, 246, 255, 0.06);
+  box-shadow: 0 0 30px rgba(0, 246, 255, 0.8);
+}
+
+#previewImage {
+  margin-top: 15px;
+  width: 100%;
+  display: none;
+  border: 2px solid #00f6ff;
+}
+
+.error-text {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Track feltöltés gomb wrapper */
+.track-upload-wrapper {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.track-upload-btn {
+  position: relative;
+  padding: 18px 60px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #00f6ff;
+  background: transparent;
+  border: 3px solid #00f6ff;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 15px rgba(0, 246, 255, 0.6),
+    inset 0 0 10px rgba(0, 246, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.track-upload-btn:hover {
+  background: #00f6ff;
+  color: #000;
+  box-shadow:
+    0 0 35px #00f6ff,
+    0 0 60px rgba(0, 246, 255, 0.8);
+  transform: translateY(-4px);
+}
+
+.track-upload-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 15px #00f6ff,
+    inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Textarea általános */
+textarea {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+textarea:focus {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+}
+
+/* Audio feltöltés */
+input[type="file"] {
+  display: none;
+}
+
+#audioBox {
+  width: 100%;
+  min-height: 220px;
+  border: 2px dashed #00ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #00ffff;
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+#audioBox:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 1);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+#audioBox .file-name {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* Form actions */
+.form-actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.form-actions button {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 0 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.form-actions button:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 1);
+}
+
+/* Album lista */
+.album-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #00ffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.album-info {
+  font-size: 16px;
+}
+
+.open-btn {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.open-btn:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+}

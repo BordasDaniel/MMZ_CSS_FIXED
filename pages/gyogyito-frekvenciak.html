@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - gyógyító frekvenciák</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="../sources/css/album.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="../sources/scripts/search.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">MMZ</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Keresés...">
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+      <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li> <!-- Áthelyezve ide a Kapcsolat alá -->
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+
+    <main class="album-main">
+      <img src="../sources/images/gyógyító.png" alt="gyógyító frekvenciák" class="album-cover">
+      <h1 class="album-title">gyógyító frekvenciák</h1>
+      <h2 class="album-artist">gyuris</h2>
+      <p class="album-genre-year">TRAP - 2025</p>
+      <div class="album-streaming-links">
+        <a href="https://open.spotify.com/prerelease/2LF2wBcsARv7v5zUEuKkIZ?si=7671d6d48efa44dd" target="_blank">
+          <i class="bi bi-spotify"></i>
+        </a>
+        <a href="https://music.apple.com/hu/album/cyan-single/1862743735?l=hu" target="_blank">
+          <i class="bi bi-apple"></i>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div class="back-to-home">
+    <a href="../index.html">← Vissza</a>
+  </div>
+<script>
+// Bejelentkezett állapot alapján mutatja/elrejti az albumos menüpontokat
+function updateAuthenticatedMenu() {
+  const user = localStorage.getItem('loggedInUser');
+  const authMenu = document.getElementById('authenticatedMenuItems');
+
+  if (user && authMenu) {
+    authMenu.style.display = 'block';
+  } else if (authMenu) {
+    authMenu.style.display = 'none';
+  }
+}
+
+// Oldal betöltésekor ellenőrizzük
+window.addEventListener('load', updateAuthenticatedMenu);
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Albumok listija</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    .page-container {
+      padding: 40px 20px;
+      min-height: 80vh;
+    }
+
+    .albums-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 50px;
+      margin-top: 60px;
+      justify-items: center;
+    }
+
+    .album-card {
+      background: rgba(0, 255, 255, 0.08);
+      border-radius: 25px;
+      width: 320px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+      transition: all 0.4s ease;
+    }
+
+    .album-card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 50px rgba(0, 255, 255, 0.7);
+    }
+
+    .album-cover-wrapper {
+      position: relative;
+      height: 320px;
+    }
+
+    .album-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .platform-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .album-card:hover .platform-overlay {
+      opacity: 1;
+    }
+
+    .platform-overlay a {
+      font-size: 50px;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    .platform-overlay a:hover {
+      transform: scale(1.3);
+    }
+
+    .album-info {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .album-title {
+      font-size: 2.2em;
+      color: white;
+      text-shadow: 0 0 15px #00ffff;
+      margin-bottom: 10px;
+      word-wrap: break-word;
+    }
+
+    .album-artist {
+      font-size: 1.5em;
+      color: #aaa;
+      text-shadow: 0 0 10px #00ffff;
+      word-wrap: break-word;
+    }
+
+    .no-albums {
+      text-align: center;
+      color: #888;
+      font-size: 1.8em;
+      margin-top: 120px;
+    }
+  </style>
+</head>
+<body>
+
+<button class="back-btn" onclick="window.location.href = '../index.html'">← VISSZA</button>
+
+<div class="page-container">
+  <h1 class="neon-title">ALBUMOK LISTÁJA</h1>
+
+  <div id="albumsGrid" class="albums-grid"></div>
+
+  <p id="noAlbumsMsg" class="no-albums">Nincs még feltöltött album.</p>
+</div>
+
+<script>
+  // Bejelentkezett felhasználó e-mailje
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const currentUserEmail = loggedInUser?.email || null;
+
+  // Albumok betöltése
+  let albums = JSON.parse(localStorage.getItem("albums") || "[]");
+
+  // Csak a saját albumokat szűrjük ki
+  const myAlbums = albums.filter(album => album.uploaderEmail === currentUserEmail);
+
+  const grid = document.getElementById("albumsGrid");
+  const noMsg = document.getElementById("noAlbumsMsg");
+
+  if (myAlbums.length === 0) {
+    noMsg.style.display = "block";
+    grid.style.display = "none";
+  } else {
+    noMsg.style.display = "none";
+    grid.style.display = "grid";
+
+    myAlbums.forEach(album => {
+      const card = document.createElement("div");
+      card.className = "album-card";
+
+      // Borító és ha van base64, azt használja, különben placeholder
+      const coverSrc = album.cover && album.cover.startsWith("data:")
+        ? album.cover
+        : "https://via.placeholder.com/320x320/000000/00ffff?text=No+Cover";
+
+      // Cím és előadó és ha üres, placeholder szöveg
+      const title = album.title && album.title.trim() ? album.title.trim() : "Ismeretlen album";
+      const artist = album.artist && album.artist.trim() ? album.artist.trim() : "Ismeretlen előadó";
+
+      card.innerHTML = `
+        <div class="album-cover-wrapper">
+          <img src="${coverSrc}" class="album-cover" alt="${title} borító">
+          <div class="platform-overlay">
+            <a href="#" title="Spotify"><i class="bi bi-spotify"></i></a>
+            <a href="#" title="Apple Music"><i class="bi bi-apple"></i></a>
+          </div>
+        </div>
+        <div class="album-info">
+          <div class="album-title">${title}</div>
+          <div class="album-artist">${artist}</div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+</script>
+
+</body>
+</html>
+
+

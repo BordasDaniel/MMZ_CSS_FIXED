@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Kapcsolat</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/contact.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="../sources/scripts/search.js"></script>
+  <script src="../sources/scripts/contact.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">MMZ</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Keresés...">
+    </div>
+  </header>
+  <div class="wrapper">
+    <nav>
+   <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li> <!-- Áthelyezve ide a Kapcsolat alá -->
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+    <main>
+      <h1>KAPCSOLAT</h1>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Írj nekünk bármilyen kérdésben</h2>
+          <p>Disztribúció, promóció, együttműködés, technikai probléma vagy csak egy köszönet – szívesen válaszolunk!</p>
+          
+          <div class="contact-links">
+            <a href="https://facebook.com/mmzdistro" target="_blank" class="contact-link">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://instagram.com/mmzdistro" target="_blank" class="contact-link">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:info@mmzdistro.com" class="contact-link email-link">
+              <i class="fas fa-envelope"></i> E-mail
+              <span class="email-tooltip">info@mmzdistro.com</span>
+            </a>
+            <a href="mailto:promo@mmzdistro.com" class="contact-link email-link">
+              <i class="fas fa-bullhorn"></i> Promo
+              <span class="email-tooltip">promo@mmzdistro.com</span>
+            </a>
+            <a href="mailto:legal@mmzdistro.com" class="contact-link email-link">
+              <i class="fas fa-gavel"></i> Jogi 
+              <span class="email-tooltip">legal@mmzdistro.com</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-box">
+          <h2>Közvetlen üzenet</h2>
+          <form id="contactForm">
+            <label>Név *</label>
+            <input type="text" required placeholder="A neved">
+            
+            <label>E-mail *</label>
+            <input type="email" required placeholder="email@cim.hu">
+            
+            <label>Tárgy *</label>
+            <input type="text" required placeholder="Pl. Disztribúció, kérdés...">
+            
+            <label>Üzenet *</label>
+            <textarea rows="10" required placeholder="Írd ide az üzeneted..."></textarea>
+            
+            <button type="submit">Küldés</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="back-to-home">
+    <a href="../index.html">← Vissza</a>
+  </div>
+
+<script>
+// Bejelentkezett állapot alapján mutatja/elrejti az albumos menüpontokat
+function updateAuthenticatedMenu() {
+  const user = localStorage.getItem('loggedInUser');
+  const authMenu = document.getElementById('authenticatedMenuItems');
+
+  if (user && authMenu) {
+    authMenu.style.display = 'block';
+  } else if (authMenu) {
+    authMenu.style.display = 'none';
+  }
+}
+
+// Oldal betöltésekor ellenőrizzük
+window.addEventListener('load', updateAuthenticatedMenu);
+</script>
+
+<script>
+  const DEFAULT_AVATAR = "https://www.shutterstock.com/image-illustration/neon-glowing-user-icon-profile-260nw-2462175375.jpg";
+
+  function updateHeaderProfile() {
+    const userJSON = localStorage.getItem('loggedInUser');
+    const authLinks = document.getElementById('auth-links');
+    const userProfile = document.getElementById('user-profile');
+    const headerImg = document.getElementById('headerProfileImg');
+    const headerName = document.getElementById('userNameDisplay');
+
+    if (userJSON) {
+      let user = JSON.parse(userJSON);
+      const fullName = `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.email;
+      const shortName = fullName.length > 18 ? fullName.split(' ')[0] : fullName;
+      const profilePic = user.profilePic || DEFAULT_AVATAR;
+
+      if (authLinks) authLinks.style.display = 'none';
+      if (userProfile) userProfile.style.display = 'flex';
+      if (headerImg) headerImg.src = profilePic;
+      if (headerName) headerName.textContent = shortName;
+
+      // Authenticated menu frissítése
+      const authMenu = document.getElementById('authenticatedMenuItems');
+      const dropdownLink = document.getElementById('dropdownUploadLink');
+      if (authMenu) authMenu.style.display = 'block';
+      if (dropdownLink) dropdownLink.style.display = 'block';
+    } else {
+      if (authLinks) authLinks.style.display = 'flex';
+      if (userProfile) userProfile.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('load', updateHeaderProfile);
+</script>
+
+
+ 
+</body>
+</html>
+

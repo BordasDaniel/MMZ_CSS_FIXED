@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Track feltöltés</title>
+    <link rel="stylesheet" href="../sources/css/general.css">
+    <link rel="stylesheet" href="../sources/css/navbar.css">
+    <link rel="stylesheet" href="../sources/css/upload.css">
+    <link rel="stylesheet" href="../sources/css/footer.css">
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← VISSZA</button>
+
+<div class="page-container">
+
+    <h1 class="neon-title">TRACK FELTÖLTÉS</h1>
+
+    <form class="album-form">
+
+        <!-- BAL OSZLOP -->
+        <div class="form-left">
+            <label>Sorszám</label>
+            <select id="trackNumber">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+
+            <label>Track címe</label>
+            <input type="text" id="trackTitle">
+
+            <label>Track alcíme</label>
+            <input type="text">
+
+            <label>ISRC kód igénylés</label>
+            <select>
+                <option>Igen</option>
+                <option>Nem</option>
+            </select>
+
+            <label>Eredeti megjelenés dátuma</label>
+            <input type="date">
+
+            <label>Zenekari közreműködők</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <!-- KÖZÉPSŐ OSZLOP -->
+        <div class="form-left">
+            <label>Stílus</label>
+            <select>
+                <option>Trap</option>
+                <option>Rap</option>
+                <option>Pop</option>
+            </select>
+
+            <label>Szövegmondó szöveg</label>
+            <select>
+                <option>Van</option>
+                <option>Nincs</option>
+            </select>
+
+            <label>Zeneszerzők</label>
+            <input type="text">
+
+            <label>Szövegírók</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <!-- JOBB OSZLOP – TRACK FELTÖLTÉS -->
+        <div class="form-right">
+
+            <label>Track feltöltése</label>
+
+            <input
+                type="file"
+                id="audioInput"
+                accept=".mp3,.wav"
+                hidden
+            >
+
+            <div id="audioBox">
+                🎵 MP3 / WAV feltöltése
+                <div id="audioFileName" style="margin-top:10px; font-size:14px;"></div>
+            </div>
+
+            <p class="error-text" id="audioError"></p>
+
+        </div>
+
+    </form>
+
+    <!-- AKCIÓ GOMBOK -->
+    <div class="form-actions">
+        <button type="button">MENTÉS</button>
+        <button type="button">MENTÉS + ÚJ TRACK</button>
+    </div>
+
+</div>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<script src="../sources/scripts/track_upload.js"></script>
+
+</body>
+</html>
+

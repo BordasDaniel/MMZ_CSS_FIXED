@@ -1,0 +1,2114 @@
+/* ================================================================
+   FŐOLDAL (index.html / base.html) - ÁLTALÁNOS STÍLUSOK
+   ================================================================ */
+
+/* -------------------- RESET ÉS ALAP BEÁLLÍTÁSOK -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #00ffef;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+/* -------------------- HEADER (FEJLÉC) -------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px 20px;
+  border-bottom: 1px solid #00ffef;
+  margin-bottom: 40px;
+}
+
+/* -------------------- SPACER (ÜRES TERÜLET) -------------------- */
+.spacer{
+  flex-grow: 1;
+}
+
+/* -------------------- HEADER JOBB OLDAL (Bejelentkezés gomb) -------------------- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Távolság a kereső és a gomb között */
+}
+
+.login-btn {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* -------------------- LOGO -------------------- */
+.logo {
+  font-size: 3.8rem;
+  font-weight: bold;
+  letter-spacing: 14px;
+  text-shadow: 0 0 20px #00ffef;
+  animation: pulse 3s infinite alternate;
+  color: #00ffef; 
+  text-decoration: none;
+}
+
+header a.logo {
+  color: #00ffef !important;
+  text-decoration: none;
+}
+
+header a.logo:visited,
+header a.logo:hover,
+header a.logo:active,
+header a.logo:focus {
+  color: #00ffef !important;
+  text-decoration: none;
+}
+
+/* -------------------- KERESŐSÁV -------------------- */
+.search-bar {
+  position: relative;
+}
+.search-bar input {
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 8px 50px 8px 15px; /* keskenyebb magasság */
+  font-size: 1rem;
+  width: 450px; /* hosszabb */
+  outline: none;
+  box-shadow: 0 0 15px rgba(1, 65, 95, 0.4);
+}
+.search-bar::after {
+  content: 'Q';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #00ffef;
+}
+
+/* -------------------- WRAPPER (Fő tartalom konténer) -------------------- */
+.wrapper {
+  display: flex;
+  gap: 60px;
+  min-height: 70vh;
+}
+
+/* -------------------- NAVIGÁCIÓS MENÜ -------------------- */
+nav ul { list-style: none; }
+nav ul li { margin-bottom: 22px; }
+nav ul li a {
+  color: #00ffef;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px #00ffef;
+  padding: 8px 0;
+  display: block;
+  transition: all 0.3s;
+}
+nav ul li a:hover {
+  background: #00ffef;
+  color: #000;
+  padding: 8px 20px;
+  box-shadow: 0 0 25px #00ffef;
+}
+
+/* -------------------- MAIN TARTALOM (Főoldal) -------------------- */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* -------------------- OLDAL CÍM -------------------- */
+.page-title {
+  font-size: 2rem;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+/* -------------------- KÉPGALÉRIA BOX (Főoldal - grid) -------------------- */
+.image-gallery-box {
+  width: 680px;
+  height: 500px;
+  max-width: 90vw;
+  border: 3px solid #00ffef;
+  background: rgba(1, 65, 95, 0.4);
+  box-shadow: 
+    0 0 20px #00ffef,
+    0 0 40px rgba(1, 65, 95, 0.4);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+/* -------------------- PLACEHOLDER (Üres galériaelem) -------------------- */
+.placeholder {
+  background: rgba(1, 65, 95, 0.4);
+  border: 1px dashed #00ffef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #00ffef;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+/* -------------------- RÓLUNK GOMB (Fix pozíció bal alsó sarokban) -------------------- */
+.about-us {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+}
+.about-us a {
+  color: #00ffef;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 14px 28px;
+  border: 2px solid #00ffef;
+  text-shadow: 0 0 10px #00ffef;
+  transition: all 0.4s;
+}
+.about-us a:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 30px #00ffef;
+}
+
+/* -------------------- RESPONSIVE - MOBIL NÉZET (Főoldal) -------------------- */
+@media (max-width: 900px) {
+  .wrapper { flex-direction: column; gap: 50px; }
+  .image-gallery-box { width: 90%; height: 400px; grid-template-columns: 1fr; }
+  header { flex-direction: column; text-align: center; gap: 20px; }
+  .search-bar input { width: 90%; max-width: 400px; }
+  .about-us { position: static; text-align: center; margin-top: 40px; }
+}
+
+/* ================================================================
+   SLIDESHOW (Főoldal - képes slider / billboard)
+   ================================================================ */
+
+/* -------------------- SLIDESHOW KONTÉNER -------------------- */
+.slideshow-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: hidden;
+  border: 3px solid #00ffef;
+  background: rgba(1, 65, 95, 0.4);
+  box-shadow: 0 0 20px #00ffef, inset 0 0 40px rgba(1, 65, 95, 0.4);
+  padding: 20px 0;
+}
+
+/* -------------------- SLIDESHOW TRACK (Mozgó sáv) -------------------- */
+.slideshow-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+/* -------------------- SLIDESHOW ITEM (Egyedi elem/kép) -------------------- */
+.slideshow-item {
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 15px;
+  overflow: hidden;
+  border: 1px dashed #00ffef;
+  box-shadow: 0 0 15px rgba(1, 65, 95, 0.4);
+}
+
+.slideshow-item img {
+  height: 400px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.slideshow-item:hover img {
+  transform: scale(1.08);
+}
+
+/* -------------------- SLIDESHOW CAPTION (Felirat - cím, előadó, streaming linkek) -------------------- */
+.slideshow-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #00ffef;
+  font-weight: bold;
+  text-shadow: 0 0 15px #00ffef;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.caption-title {
+  font-size: 1.8rem;
+}
+
+.caption-artist {
+  font-size: 1.4rem;
+  margin-top: 8px;
+  display: block;
+}
+
+.streaming-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.streaming-links a {
+  color: #00ffef;
+  font-size: 2rem;
+  text-shadow: 0 0 15px #00ffef;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.streaming-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 25px #00ffef;
+  opacity: 1;
+  transform: scale(1.2);
+}
+.slideshow-item:hover .slideshow-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------- SLIDESHOW ANIMÁCIÓK -------------------- */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.slideshow-container:hover .slideshow-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 900px) {
+  .slideshow-item img {
+    height: 250px;
+  }
+  .slideshow-caption {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+}
+
+/*music.html*/
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 30px;
+    border: 3px solid #00ffef;
+    background: rgba(1, 65, 95, 0.4);
+    box-shadow: 0 0 20px #00ffef, 0 0 40px rgba(1, 65, 95, 0.4);
+}
+
+.mosaic-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px dashed #00ffef;
+    background: rgba(1, 65, 95, 0.4);
+    box-shadow: 0 0 15px rgba(1, 65, 95, 0.4);
+    cursor: pointer;
+}
+
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.mosaic-item:hover img {
+    transform: scale(1.15);
+}
+
+.item-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ffef;
+  text-align: center;
+  padding: 12px 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.item-creator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 255, 239, 0.95);
+  color: #000;
+  padding: 12px 28px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 0 30px #00ffef;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+}
+
+.mosaic-item:hover .item-creator {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .mosaic-gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px;
+    padding: 20px;
+    gap: 18px;
+  }
+  .size-big,
+  .size-medium,
+  .size-small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+/*policy.html*/
+main h1 {
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+main h2 {
+  font-size: 1.1rem; 
+  line-height: 1.8;         
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+main h2 p {
+  margin-bottom: 18px;
+}
+
+main ul {
+  margin: 20px 0;
+  padding-left: 40px;
+}
+
+main ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  position: relative;
+}
+
+main ul li::marker {
+  color: #00ffef;
+}
+
+main h1, main h2 {
+  text-shadow: 0 0 10px #00ffef;
+}
+
+main a {
+  color: #00ffef;
+  text-decoration: underline;
+  text-shadow: 0 0 8px #00ffef;
+}
+
+main a:hover {
+  background: #00ffef;
+  color: #000;
+  padding: 2px 6px;
+}
+/*promo.html*/
+main h1 {
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+main h2 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center; 
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main h2 p {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+main h2 ul {
+  margin: 30px auto;
+  padding-left: 40px;
+  max-width: 600px;
+  text-align: left;
+}
+
+main h2 ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  position: relative;
+}
+
+main h2 ul li::marker {
+  color: #00ffef;
+}
+
+main h1,
+main h2 {
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #00ffef;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00ffef;
+  padding: 12px 30px;
+  border: 2px solid #00ffef;
+  transition: all 0.4s ease;
+  min-width: 280px;
+  justify-content: center;
+}
+
+.contact-link:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 30px #00ffef;
+  transform: translateY(-3px);
+}
+
+.contact-link i {
+  font-size: 1.6rem;
+}
+
+.email-link {
+  position: relative;
+}
+.email-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #00ffef;
+  padding: 8px 16px;
+  border: 2px solid #00ffef;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px #00ffef;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+.email-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top-color: #00ffef;
+}
+.email-link:hover .email-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+@media (max-width: 900px) {
+  .email-tooltip { display: none; }
+  .contact-link {
+    min-width: 260px;
+    font-size: 1.2rem;
+    padding: 10px 24px;
+  }
+}
+/*aboutus.html*/
+main h1 {
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  text-align: left;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+main h2 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left; 
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main h2 p {
+  margin-bottom: 24px;
+  text-align: left;
+}
+/*prods.html*/
+.prods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+.prod-card {
+  background: rgba(1, 65, 95, 0.4);
+  border: 2px solid #00ffef;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(1, 65, 95, 0.4);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.prod-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px #00ffef;
+}
+
+.prod-avatar {
+  font-size: 4rem;
+  color: #00ffef;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #00ffef;
+}
+
+.prod-name {
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.prod-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.prod-ticket-btn {
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.prod-ticket-btn:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 25px #00ffef;
+}
+
+.ticket-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #000;
+  border: 3px solid #00ffef;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 40px #00ffef;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #00ffef;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px #00ffef;
+}
+
+.modal-content label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffef;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 12px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(1, 65, 95, 0.4);
+}
+
+.modal-content button {
+  width: 100%;
+  margin-top: 30px;
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 14px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.modal-content button:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 30px #00ffef;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.prod-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.social-link {
+  font-size: 1.8rem;
+  color: #00ffef;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.social-link:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  text-shadow: 0 0 15px #00ffef;
+}
+
+.social-link.spotify:hover { color: #1DB954; }
+.social-link.soundcloud:hover { color: #ff8800; }
+
+/*contact.html*/
+.contact-container {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.contact-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px #00ffef;
+}
+
+.contact-info p {
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.contact-form-box {
+  flex: 1;
+  min-width: 400px;
+  background: rgba(1, 65, 95, 0.4);
+  border: 3px solid #00ffef;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(1, 65, 95, 0.4);
+}
+
+.contact-form-box h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px #00ffef;
+}
+
+.contact-form-box label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffef;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 12px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(1, 65, 95, 0.4);
+}
+
+.contact-form-box button {
+  width: 100%;
+  margin-top: 30px;
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 14px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.contact-form-box button:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 30px #00ffef;
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-form-box {
+    width: 90%;
+    max-width: 500px;
+  }
+}
+
+/*register.html - login.html – modern, Distrokid-szerű regisztráció + működő FAQ */
+.auth-main {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth-container-flex {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  width: 100%;
+}
+
+/* Modern regisztrációs doboz – bal oldal (fixált verzió) */
+.modern-auth-box {
+  background: rgba(1, 65, 95, 0.6);
+  border: 3px solid #00ffef;
+  padding: 60px 40px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 0 40px rgba(0, 255, 239, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Modern regisztrációs doboz – végleges */
+.modern-auth-box h1 {
+  font-size: 2.3rem; /* Még kisebb betű, hogy biztosan beleférjen */
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px #00ffef;
+  margin-bottom: 50px;
+  color: #00ffef;
+  line-height: 1.2;
+}
+
+
+
+.modern-auth-box form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modern-auth-box input {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 239, 0.3);
+}
+
+.modern-auth-box input::placeholder {
+  color: #666;
+}
+
+.primary-btn {
+  background: #00ffef;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.4s;
+  box-shadow: 0 0 20px #00ffef;
+}
+
+.primary-btn:hover {
+  background: #00cccc;
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #00ffef;
+}
+
+.or-separator {
+  margin: 40px 0;
+  font-size: 1.2rem;
+  color: #00ffef;
+  position: relative;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.or-separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 255, 239, 0.4);
+}
+
+.or-separator::after {
+  
+  background: #000;
+  padding: 0 30px;
+  position: relative;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(0, 255, 239, 0.2);
+  text-decoration: none;
+}
+
+.google-btn {
+  background: #fff;
+  color: #000;
+}
+
+.google-btn .social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.apple-btn {
+  background: #000;
+  color: #fff;
+  border: 2px solid #333;
+}
+
+.apple-btn i {
+  font-size: 1.6rem;
+}
+
+/* Alul a bejelentkezési link */
+.auth-bottom-link {
+  margin-top: 50px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #00ffef;
+  text-shadow: 0 0 10px #00ffef;
+}
+
+.auth-bottom-link a {
+  color: #00ffef;
+  text-decoration: underline;
+  font-size: 1.4rem;
+  text-shadow: 0 0 12px #00ffef;
+}
+
+.auth-bottom-link a:hover {
+  background: #00ffef;
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* FAQ – jobb oldalon (fixált szövegcsúszás) */
+.faq-section {
+  flex: 1;
+  min-width: 400px;
+  max-width: 600px;
+  padding: 40px 0;
+}
+
+.faq-section h1 {
+  font-size: 2.6rem;
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px #00ffef;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 255, 239, 0.3);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 10px #00ffef;
+  transition: all 0.3s;
+  word-wrap: break-word;
+}
+
+.faq-question span {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.faq-question:hover {
+  color: #fff;
+}
+
+.faq-toggle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffef;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 20px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 25px 20px;
+}
+
+.back-to-home {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 100;
+}
+
+.back-to-home a {
+  color: #00ffef;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px #00ffef;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #00ffef;
+  box-shadow: 0 0 15px rgba(0, 255, 239, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-to-home a:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 25px #00ffef;
+}
+
+.streaming-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.streaming-links a {
+  color: #00ffef;
+  font-size: 2rem; 
+  text-shadow: 0 0 15px #00ffef;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.streaming-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 25px #00ffef;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.slideshow-item:hover .slideshow-caption {
+  opacity: 1;
+}
+
+/* Átlátszó kék overlay hoverkor – mindig látható cím + ikonok */
+.slideshow-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 239, 0.15); /* átlátszó ciánkék */
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none; /* ne blokkolja a kattintást */
+  z-index: 1;
+}
+
+.slideshow-item:hover .slideshow-overlay {
+  opacity: 1;
+}
+
+/* Cím és ikonok mindig láthatóak */
+.slideshow-caption {
+  opacity: 1 !important; /* mindig látható */
+  z-index: 2;
+}
+
+/* Kisebb finomítások */
+.caption-title {
+  font-size: 1.8rem;
+}
+
+.caption-artist {
+  font-size: 1.4rem;
+  margin-top: 8px;
+  display: block;
+}
+
+/* Keresési dropdown – előadó + cím egy sorban */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 450px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid #00ffef;
+  box-shadow: 0 0 25px #00ffef;
+  max-height: 360px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  border-top: none;
+}
+
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 255, 239, 0.15);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  min-height: 80px;
+}
+
+.search-dropdown-item:hover {
+  background: rgba(0, 255, 239, 0.12);
+}
+
+.search-dropdown-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  margin-right: 20px;
+  border: 2px solid #00ffef;
+  box-shadow: 0 0 12px #00ffef;
+  flex-shrink: 0;
+}
+
+.search-dropdown-item .item-info {
+  flex: 1;
+  display: flex;
+  align-items: center; /* függőlegesen középre */
+}
+
+.search-dropdown-item .single-line-text {
+  font-size: 1.4rem;
+  color: #00ffef;
+  text-shadow: 0 0 10px #00ffef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-dropdown-item .single-line-text .artist-name {
+  color: #cccccc;
+  font-weight: normal;
+}
+
+/* Albumoldal stílusai */
+.album-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.album-cover {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border: 3px solid #00ffef;
+  box-shadow: 0 0 30px #00ffef;
+  margin-bottom: 30px;
+}
+
+.album-title {
+  font-size: 2.8rem;
+  color: #00ffef;
+  text-shadow: 0 0 15px #00ffef;
+  margin-bottom: 10px;
+}
+
+.album-artist {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.album-genre-year {
+  font-size: 1.3rem;
+  color: #00ffef;
+  margin-bottom: 40px;
+}
+
+.album-streaming-links {
+  display: flex;
+  gap: 40px;
+}
+
+.album-streaming-links a {
+  color: #00ffef;
+  font-size: 3.5rem;
+  text-shadow: 0 0 20px #00ffef;
+  transition: all 0.3s;
+}
+
+.album-streaming-links a:hover {
+  color: #fff;
+  transform: scale(1.2);
+  text-shadow: 0 0 30px #00ffef;
+}
+
+/* Telefonszám mező zászlóval – zászló a mezőn belül */
+.phone-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.phone-input-container input {
+  width: 100%;
+  padding-left: 56px !important; /* hely a zászlónak */
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 20px 16px 56px;
+  font-size: 1.1rem;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 239, 0.3);
+}
+
+#countryFlag {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  pointer-events: none;
+  display: none; /* alapból rejtett, csak ha van előhívó */
+}
+
+/* Header jobb oldal – profil ikon */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-links {
+  display: flex;
+  gap: 15px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile svg {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.user-profile svg:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px #00ffef);
+}
+
+.user-profile {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 32px;
+  color: #fff;
+}
+
+/* Dropdown alapból zárt */
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+
+  background: #111;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Amikor nyitva van */
+.profile-dropdown.active {
+  display: flex;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+  background-color: #222;
+}
+
+.profile-dropdown button {
+  color: #ff4d4d;
+}
+
+.profile-dropdown button:hover {
+  background-color: #2a0000;
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 6px 0;
+}
+
+.neon-title {
+    color: #00f6ff;
+    text-shadow: 0 0 10px #00f6ff;
+    margin-bottom: 30px;
+}
+
+.album-form {
+    display: flex;
+    gap: 40px;
+}
+
+.form-left {
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 30px;
+    align-content: flex-start;
+}
+
+.form-left label {
+    grid-column: span 2;
+    color: #00f6ff;
+}
+
+.form-left input,
+.form-left select,
+.form-left textarea {
+  grid-column: span 2;
+  height: 44px;
+  padding: 10px 14px;
+  background: #0b0b0b;
+  border: 2px solid #00f6ff;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(0,246,255,0.3);
+  resize: vertical;
+}
+
+/* textarea specifikus */
+.form-left textarea {
+  height: 90px;
+}
+
+
+.form-right {
+    flex: 1;
+}
+
+.cover-box {
+    height: 250px;
+    border: 2px dashed #00f6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #00f6ff;
+}
+
+.cover-box:hover {
+    background: rgba(0, 246, 255, 0.05);
+}
+
+.error-text {
+    color: red;
+    margin-top: 10px;
+}
+
+#previewImage {
+    margin-top: 15px;
+    width: 100%;
+    display: none;
+    border: 1px solid #00f6ff;
+}
+
+/* =========================
+   TRACK FELTÖLTÉSE GOMB
+   ========================= */
+
+.track-upload-wrapper {
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+.track-upload-btn {
+  position: relative;
+  padding: 18px 60px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: #00f6ff;
+  background: transparent;
+  border: 3px solid #00f6ff;
+  border-radius: 6px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 15px rgba(0, 246, 255, 0.6),
+    inset 0 0 10px rgba(0, 246, 255, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+.track-upload-btn:hover {
+  background: #00f6ff;
+  color: #000;
+
+  box-shadow:
+    0 0 35px #00f6ff,
+    0 0 60px rgba(0, 246, 255, 0.8);
+
+  transform: translateY(-4px);
+}
+
+.track-upload-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 15px #00f6ff,
+    inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+
+.back-btn {
+  background: transparent;
+  border: 2px solid #00ffef;
+  color: #00ffef;
+  padding: 10px 22px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffef;
+  transition: all 0.3s;
+  margin-bottom: 30px;
+}
+
+.back-btn:hover {
+  background: #00ffef;
+  color: #000;
+  box-shadow: 0 0 30px #00ffef;
+}
+
+textarea {
+    width: 100%;
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    box-shadow: 0 0 10px rgba(0,255,255,0.5);
+}
+
+textarea:focus {
+    box-shadow: 0 0 20px rgba(0,255,255,0.9);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#audioBox {
+    border: 2px dashed #00ffff;
+    padding: 40px;
+    text-align: center;
+    color: #00ffff;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+#audioBox:hover {
+    box-shadow: 0 0 25px rgba(0,255,255,1);
+}
+
+.form-actions button {
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 15px 30px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 20px;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+.form-actions button:hover {
+    box-shadow: 0 0 30px rgba(0,255,255,1);
+}
+
+
+/* =========================================================
+   ALBUM UPLOAD – FIX (NEM BÁNT MÁS OLDALT)
+   ========================================================= */
+
+.album-form {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.form-left {
+  flex: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 30px;
+}
+
+.form-left label {
+  grid-column: span 2;
+}
+
+.form-left input,
+.form-left select,
+.form-left textarea {
+  grid-column: span 2;
+  background: #0b0b0b;
+  border: 2px solid #00f6ff;
+  color: #ffffff;
+  padding: 12px 14px;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(0,246,255,0.35);
+}
+
+.form-left textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-right {
+  flex: 1;
+}
+
+/* Album borító feltöltés */
+.cover-box {
+  height: 260px;
+  border: 2px dashed #00f6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f6ff;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,246,255,0.4);
+}
+
+.cover-box:hover {
+  background: rgba(0,246,255,0.06);
+  box-shadow: 0 0 30px rgba(0,246,255,0.8);
+}
+
+#previewImage {
+  margin-top: 15px;
+  width: 100%;
+  display: none;
+  border: 2px solid #00f6ff;
+}
+
+/* =========================================================
+   TRACK UPLOAD – FIX (MP3 / WAV, VALÓDI FELTÖLTÉS)
+   ========================================================= */
+
+.track-upload-wrapper {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Track feltöltés gomb – MENÜPONTBAN */
+.track-upload-btn {
+  padding: 18px 60px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #00f6ff;
+  background: transparent;
+  border: 3px solid #00f6ff;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow:
+    0 0 18px rgba(0,246,255,0.6),
+    inset 0 0 10px rgba(0,246,255,0.4);
+  transition: all 0.3s ease;
+}
+
+.track-upload-btn:hover {
+  background: #00f6ff;
+  color: #000;
+  box-shadow:
+    0 0 40px #00f6ff,
+    0 0 70px rgba(0,246,255,0.9);
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   TRACK UPLOAD OLDAL – AUDIO DROPBOX
+   ========================================================= */
+
+input[type="file"] {
+  display: none;
+}
+
+#audioBox {
+  width: 100%;
+  min-height: 220px;
+  border: 2px dashed #00ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #00ffff;
+  text-align: center;
+  box-shadow: 0 0 18px rgba(0,255,255,0.6);
+  transition: all 0.3s ease;
+}
+
+#audioBox:hover {
+  box-shadow: 0 0 35px rgba(0,255,255,1);
+}
+
+/* Audio file infó */
+#audioBox .file-name {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* =========================================================
+   FORM ACTIONS (MENTÉS GOMBOK)
+   ========================================================= */
+
+.form-actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.form-actions button {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 0 20px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.6);
+  transition: all 0.3s ease;
+}
+
+.form-actions button:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 35px rgba(0,255,255,1);
+}
+
+.album-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #00ffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+.album-info {
+    font-size: 16px;
+}
+
+.open-btn {
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+.open-btn:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 30px rgba(0,255,255,1);
+}
+
+
+/*PROFIL.HTML*/
+.profile-main {
+  padding: 40px 20px;
+  min-height: 70vh;
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.profile-avatar {
+  font-size: 100px;
+  color: var(--neon-cyan, #00ffff);
+  margin-bottom: 20px;
+}
+
+.profile-avatar i {
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.profile-info h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.profile-info p {
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.profile-info strong {
+  color: var(--neon-cyan, #00ffff);
+}
+
+.profile-actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.user-name {
+  margin-left: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+
+.site-footer {
+  background: #111;
+  color: #aaa;
+  padding: 60px 20px 30px;
+  margin-top: 100px;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  color: #00ffff;
+  font-size: 28px;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: white;
+}
+
+.footer-copyright {
+  font-size: 1em;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.footer-column h4 {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #00ffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
+  font-size: 0.9em;
+}
+
+.footer-bottom a {
+  color: #aaa;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: #00ffff;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-bottom: 20px;
+  }
+}
+
+
+.page-content {
+  color: #ccc;
+  font-size: 1.2em;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.service-list li {
+  margin-bottom: 15px;
+  color: #fff;
+  position: relative;
+  padding-left: 25px;
+}
+
+.service-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #00ffff;
+}
+
+.primary-btn {
+  background: rgba(0, 255, 255, 0.2);
+  color: #00ffff;
+  padding: 12px 24px;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.primary-btn:hover {
+  background: rgba(0, 255, 255, 0.4);
+}
+
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.header-profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background 0.3s;
+}
+
+.profile-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.header-name-container {
+  margin-left: 12px;
+  text-align: left;
+}
+
+.user-name {
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px #00ffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.artist-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.artist-label-header {
+  font-size: 0.9em;
+}
+
+.verified-check-header {
+  color: #00ffff;
+  font-size: 1.2em;
+  text-shadow: 0 0 15px #00ffff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header-name-container {
+    display: none; /* mobilon csak a kép látszódik, hogy ne csússzon szét */
+  }
+  .header-profile-img {
+    width: 40px;
+    height: 40px;
+  }
+}

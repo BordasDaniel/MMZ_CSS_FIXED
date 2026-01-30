@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ</title>
+  <link rel="stylesheet" href="sources/css/general.css">
+  <link rel="stylesheet" href="sources/css/navbar.css">
+  <link rel="stylesheet" href="sources/css/home.css">
+  <link rel="stylesheet" href="sources/css/footer.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <script src="sources/scripts/search.js"></script>
+</head>
+<body>
+  <!-- ÚJ EGYSÉGES HEADER – MÁSOLJ BE EZT MINDEN OLDALRA -->
+  <header>
+    <div class="logo">MMZ</div>
+
+    <div class="header-center">
+      <div class="search-bar">
+        <span class="search-icon"></span>
+        <input type="text" placeholder="Keresés...">
+      </div>
+    </div>
+
+    <div class="header-right">
+      <!-- Nem bejelentkezett állapot -->
+      <div id="auth-links" class="auth-links">
+        <a href="pages/login.html" class="login-btn">Bejelentkezés</a>
+        <span class="divider">|</span>
+        <a href="pages/register.html" class="login-btn">Regisztráció</a>
+      </div>
+
+      <!-- Bejelentkezett állapot – profilkép + név + Artist badge + pipa -->
+      <div id="user-profile" class="user-profile" style="display: none;">
+        <button id="profileBtn" class="profile-btn">
+          <img id="headerProfileImg" class="header-profile-img" src="" alt="Profilkép">
+          <div class="header-name-container">
+            <span id="userNameDisplay" class="user-name"></span>
+            <div class="artist-badge-header">
+              <span class="artist-label-header">Artist</span>
+              <span class="verified-check-header">✔</span>
+            </div>
+          </div>
+        </button>
+
+        <div id="profileDropdown" class="profile-dropdown">
+          <a href="pages/profile.html">Profil</a>
+          <div id="dropdownUploadLink" style="display: none;">
+            <a href="pages/album_upload.html">Album feltöltés</a>
+          </div>
+          <hr>
+          <button id="logoutBtn">Kijelentkezés</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+     <ul>
+    <li><a href="index.html">Kezdőlap</a></li>
+    <li><a href="pages/music.html">Zenék</a></li>
+    <li><a href="pages/policy.html">ÁSZF</a></li>
+    <li><a href="pages/promo.html">Promóció</a></li> 
+    <li><a href="pages/prods.html">Előadók</a></li>
+    <li><a href="pages/contact.html">Kapcsolat</a></li>
+    <li><a href="pages/aboutus.html">Rólunk</a></li>
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="pages/album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="pages/albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+    <main>
+      <p class="page-title">JELENLEG NÉPSZERŰ ZENÉK/ALBUMOK</p>
+      <div class="slideshow-container">
+        <div class="slideshow-track">
+          <!-- Manuel -->
+          <div class="slideshow-item">
+            <img src="sources/images/Orgona.jpg" alt="Orgona">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">Orgonabokor (Album)</div>
+              <div class="caption-artist">Manuel</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/track/6PfQxSKdb1T71Y6rotJ5a9?si=6640903e482442a9" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/orgonabokor/1795742501?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mehringer -->
+          <div class="slideshow-item">
+            <img src="sources/images/ÉDEN.jpg" alt="ÉDEN">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">ÉDEN</div>
+              <div class="caption-artist">Mehringer</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/track/37rab2ZEkXwsPboXTZxHBf?si=4523c77e314b4141" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/%C3%A9den-single/1853879430?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- gyuris - gyógyító frekvenciák -->
+          <div class="slideshow-item">
+            <img src="sources/images/gyógyító.png" alt="Gyógyító">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">gyógyító frekvenciák (Album)</div>
+              <div class="caption-artist">gyuris</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/prerelease/2LF2wBcsARv7v5zUEuKkIZ?si=7671d6d48efa44dd" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/cyan-single/1862743735?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- gyuris - hóangyal -->
+          <div class="slideshow-item">
+            <img src="sources/images/hóangyal.png" alt="Hóangyal">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">hóangyal</div>
+              <div class="caption-artist">gyuris</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/album/1x7cbY0aFqC5UEiJizAscJ?si=NwqJHTvESdyebZkggvAGlw" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/h%C3%B3angyal-single/1858886516?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mario -->
+          <div class="slideshow-item">
+            <img src="sources/images/Kimaradás.jpg" alt="Kimaradás">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">Kimaradás</div>
+              <div class="caption-artist">Mario</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/track/6ij2MtTi05Tpghcvp4i64m?si=bcdf96c784b0410e" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/kimarad%C3%A1s-single/1828260599?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AKC Misi -->
+          <div class="slideshow-item">
+            <img src="sources/images/Vigyázz_magadra.jpg" alt="Vigyázz_Magadra">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">Vigyázz magadra, jó szórakozást</div>
+              <div class="caption-artist">AKC Misi</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/album/1fBB3D2EqSYKXvuCePwI5S?si=qC8iybZ4QdKdp_IXIh9kkA" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/vigy%C3%A1zz-magadra-j%C3%B3-sz%C3%B3rakoz%C3%A1st/1862121130?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- matro - GLAMOUR -->
+          <div class="slideshow-item">
+            <img src="sources/images/GLAMOUR.jpg" alt="Glamour">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">GLAMOUR (Album)</div>
+              <div class="caption-artist">matro</div>
+            </div>
+          </div>
+
+          <!-- Bruno X Spacc -->
+          <div class="slideshow-item">
+            <img src="sources/images/djv.jpg" alt="DJV">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">DJV</div>
+              <div class="caption-artist">Bruno X Spacc</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/track/2rCQ3zEmyjiXuBlXms3mc4?si=20261d26767a45a2" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/djv-single/1811164701?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplikált elemek – példa -->
+          <div class="slideshow-item">
+            <img src="sources/images/Orgona.jpg" alt="Orgona">
+            <div class="slideshow-overlay"></div>
+            <div class="slideshow-caption">
+              <div class="caption-title">Orgonabokor (Album)</div>
+              <div class="caption-artist">Manuel</div>
+              <div class="streaming-links">
+                <a href="https://open.spotify.com/track/6PfQxSKdb1T71Y6rotJ5a9?si=6640903e482442a9" target="_blank">
+                  <i class="bi bi-spotify"></i>
+                </a>
+                <a href="https://music.apple.com/hu/album/orgonabokor/1795742501?l=hu" target="_blank">
+                  <i class="bi bi-apple"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- ... további duplikált elemek ha vannak ... -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-social">
+        <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copyright">
+        © 2026 MMZ. Minden jog fenntartva.
+      </div>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Hasznos hivatkozások</h4>
+        <ul>
+          <li><a href="pages/register.html" class="auth-only-register">Regisztráció</a></li>
+          <li><a href="pages/login.html" class="auth-only-login">Bejelentkezés</a></li>
+          <li><a href="pages/contact.html">Kapcsolat</a></li>
+          <li><a href="pages/promo.html">Promóció</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Cég</h4>
+        <ul>
+          <li><a href="pages/aboutus.html">Rólunk</a></li>
+          <li><a href="pages/prods.html">Előadók</a></li>
+          <li><a href="pages/policy.html">ÁSZF</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Szolgáltatások</h4>
+        <ul>
+          <li><a href="pages/album_upload.html" class="auth-only-service">Album feltöltés</a></li>
+          <li><a href="pages/track_upload.html" class="auth-only-service">Track feltöltés</a></li>
+          <li><a href="pages/distribution.html">Digitális disztribúció</a></li>
+          <li><a href="pages/promotion.html">Promóciós támogatás</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <a href="pages/policy.html">Adatvédelmi szabályzat</a>
+      <a href="pages/policy.html">Sütiszabályzat</a>
+      <a href="pages/policy.html">Felhasználási feltételek</a>
+      <a href="pages/impresszum.html">Impresszum</a>
+    </div>
+  </footer>
+
+  <script>
+    const DEFAULT_AVATAR = "https://www.shutterstock.com/image-illustration/neon-glowing-user-icon-profile-260nw-2462175375.jpg";
+
+    function updateHeaderAndMenu() {
+      const userJSON = localStorage.getItem('loggedInUser');
+      const authLinks = document.getElementById('auth-links');
+      const userProfile = document.getElementById('user-profile');
+      const authMenu = document.getElementById('authenticatedMenuItems');
+      const dropdownLink = document.getElementById('dropdownUploadLink');
+
+      if (userJSON) {
+        let user = JSON.parse(userJSON);
+        const fullName = `${user.firstName || ''} ${user.lastName || ''}`.trim() || user.email;
+        const shortName = fullName.length > 18 ? fullName.split(' ')[0] : fullName;
+        const profilePic = user.profilePic || DEFAULT_AVATAR;
+
+        if (authLinks) authLinks.style.display = 'none';
+        if (userProfile) userProfile.style.display = 'flex';
+        if (document.getElementById('headerProfileImg')) document.getElementById('headerProfileImg').src = profilePic;
+        if (document.getElementById('userNameDisplay')) document.getElementById('userNameDisplay').textContent = shortName;
+
+        if (authMenu) authMenu.style.display = 'block';
+        if (dropdownLink) dropdownLink.style.display = 'block';
+      } else {
+        if (authLinks) authLinks.style.display = 'flex';
+        if (userProfile) userProfile.style.display = 'none';
+        if (authMenu) authMenu.style.display = 'none';
+        if (dropdownLink) dropdownLink.style.display = 'none';
+      }
+    }
+
+    function updateFooterAuthLinks() {
+      const isLoggedIn = !!localStorage.getItem('loggedInUser');
+
+      // Regisztráció és Bejelentkezés – csak kijelentkezett állapotban látható
+      document.querySelectorAll('.auth-only-register, .auth-only-login').forEach(el => {
+        el.style.display = isLoggedIn ? 'none' : 'list-item';
+      });
+
+      // Album feltöltés és Track feltöltés – csak bejelentkezett állapotban látható
+      document.querySelectorAll('.auth-only-service').forEach(el => {
+        el.style.display = isLoggedIn ? 'list-item' : 'none';
+      });
+    }
+
+    window.addEventListener('load', () => {
+      updateHeaderAndMenu();
+      updateFooterAuthLinks();
+
+      const profileBtn = document.getElementById('profileBtn');
+      const dropdown = document.getElementById('profileDropdown');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      if (profileBtn) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('active');
+        });
+      }
+
+      document.addEventListener('click', () => {
+        if (dropdown) dropdown.classList.remove('active');
+      });
+
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          localStorage.removeItem('loggedInUser');
+          alert('Sikeres kijelentkezés!');
+          updateHeaderAndMenu();
+          updateFooterAuthLinks();
+          window.location.href = 'index.html';
+        });
+      }
+    });
+  </script>
+
+  <!-- egyéb meglévő scriptek ha még kellenek -->
+  <script>
+  if (localStorage.getItem("albumSaved") === "true") {
+    document.getElementById("albumsListBtn")?.style.display = "block";
+  }
+  </script>
+
+  <script>
+    const albums = JSON.parse(localStorage.getItem("albums") || "[]");
+    if (albums.length > 0) {
+      document.getElementById("albumsListBtn")?.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMZ - Regisztráció</title>
+  <link rel="stylesheet" href="../sources/css/general.css">
+  <link rel="stylesheet" href="../sources/css/navbar.css">
+  <link rel="stylesheet" href="../sources/css/auth.css">
+  <link rel="stylesheet" href="../sources/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
+  <script src="../sources/scripts/search.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="logo">MMZ</a>
+  </header>
+
+  <div class="wrapper">
+    <nav>
+     <ul>
+    <li><a href="../index.html">Kezdőlap</a></li>
+    <li><a href="music.html">Zenék</a></li>
+    <li><a href="policy.html">ÁSZF</a></li>
+    <li><a href="promo.html">Promóció</a></li> 
+    <li><a href="prods.html">Előadók</a></li>
+    <li><a href="contact.html">Kapcsolat</a></li>
+    <li><a href="aboutus.html">Rólunk</a></li>
+
+    <!-- Bejelentkezett felhasználóknak -->
+    <div id="authenticatedMenuItems" style="display: none;">
+      <li><a href="album_upload.html">ALBUM FELTÖLTÉS</a></li>
+      <li><a href="albums_list.html">Albumok listája</a></li>
+    </div>
+  </ul>
+    </nav>
+
+    <main class="auth-main">
+      <div class="auth-container-flex">
+        <!-- Bal oldal: Modern regisztráció -->
+        <div class="modern-auth-box">
+          <h1>Zenészek, regisztráljatok még ma!</h1>
+          
+          <form id="registerForm">
+            <input type="text" id="firstName" placeholder="Vezetéknév" required>
+            <input type="text" id="lastName" placeholder="Keresztnév" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="felhasznalonev" id="felhaszn" placeholder="Felhasználónév" required>
+
+            <!-- Telefonszám mező zászlóval a mezőn belül -->
+            <div class="phone-input-container">
+              <span id="countryFlag" class="flag-icon"></span>
+              <input type="tel" id="phone" placeholder="Telefonszám (pl. +36 30 123 4567)" required>
+            </div>
+
+            <input type="password" id="password" placeholder="Jelszó" required>
+            <input type="password" id="passwordConfirm" placeholder="Jelszó megerősítése" required>
+            
+            <button type="submit" class="primary-btn">Regisztráció</button>
+          </form>
+          
+          <div class="or-separator">vagy</div>
+          
+          <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F\&dsh=S1293441555%3A1767781498749623\&followup=https%3A%2F%2Faccounts.google.com%2F\&ifkv=Ac2yZaVB26WBK_xOBw8wdHfuSg5AKQj_HDUFDXADzrZapxf9e9p9SEZK1P8HIKOG9pFqQhKU1hnypQ\&passive=1209600\&flowName=GlifWebSignIn\&flowEntry=ServiceLogin" target="_blank" class="social-btn google-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="social-icon">
+            Regisztráció Google használatával
+          </a>
+          
+          <a href="https://account.apple.com/sign-in?localang=en_US" target="_blank" class="social-btn apple-btn">
+            <i class="bi bi-apple"></i>
+            Regisztráció Apple használatával
+          </a>
+
+          <p class="auth-bottom-link">
+            Már rendelkezik felhasználói profillal? Kérjük jelentkezzen be!
+            <a href="login.html">Bejelentkezés</a>
+          </p>
+        </div>
+
+        <!-- Jobb oldal: GYIK -->
+        <div class="faq-section">
+          <h1>Gyakran Ismételt Kérdések</h1>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Mi az az MMZ?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>Az MMZ egy szolgáltatás a zenészek számára, amely eljuttatja a zenéidet a boltok és a streaming szolgáltatások kínálatába. Majd amikor az emberek meghallgatják a zenéidet, mi pénzt küldünk neked.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Miért használjam az MMZ-t?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>Az MMZ nem kér el semmilyen pénzt a disztribúciós szolgáltatásaiért – ezzel is segítve, hogy a zenészek akadályok nélkül fókuszálhassanak az alkotásra és a fejlődésre.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Miért jobb az MMZ?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>Hiszünk abban, hogy a tehetség számít, nem a pénz. Ingyenes disztribúció, promóciós támogatás és fiatal, feltörekvő zenészek segítése a fő célunk.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Ki használja az MMZ-t?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>Magyar előadók, különösen fiatal, feltörekvő zenészek, akik hisznek a zenéjükben, de még nem rendelkeznek nagy háttérrel.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Mennyibe fog ez kerülni nekem?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>Semmibe. Az MMZ disztribúció teljesen ingyenes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Mennyit tart meg az eladásaimból az MMZ?</span>
+              <i class="faq-toggle">+</i>
+            </div>
+            <div class="faq-answer">
+              <p>0%-ot. Minden bevétel 100%-ban a tiéd.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="back-to-home">
+    <a href="../index.html">← Vissza</a>
+  </div>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+        const toggle = question.querySelector('.faq-toggle');
+        toggle.textContent = faqItem.classList.contains('active') ? '−' : '+';
+      });
+    });
+
+    // Telefonszám előhívó felismerés + zászló a mezőn belül
+    const phoneInput = document.getElementById('phone');
+    const flagIcon = document.getElementById('countryFlag');
+
+    const countryCodes = {
+      '+36': 'hu',  // Magyarország
+      '+43': 'at',  // Ausztria
+      '+44': 'gb',  // Egyesült Királyság
+      '+49': 'de'   // Németország
+    };
+
+    phoneInput.addEventListener('input', () => {
+      const value = phoneInput.value.trim();
+      let code = '';
+
+      for (const prefix in countryCodes) {
+        if (value.startsWith(prefix)) {
+          code = prefix;
+          break;
+        }
+      }
+
+      if (code && countryCodes[code]) {
+        flagIcon.className = `flag-icon flag-icon-${countryCodes[code]}`;
+        flagIcon.style.display = 'block';
+      } else {
+        flagIcon.className = 'flag-icon';
+        flagIcon.style.display = 'none';
+      }
+    });
+
+    // Űrlap validáció
+    const registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value;
+      const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+      if (password !== passwordConfirm) {
+        alert('A jelszavak nem egyeznek!');
+        return;
+      }
+
+      // Telefonszám validáció (ugyanaz, mint korábban)
+      const phoneValue = phone.replace(/[\s-]/g, '');
+      let validPhone = false;
+      if (phoneValue.startsWith('+36') && phoneValue.length === 12) validPhone = true;
+      if (phoneValue.startsWith('+43') && phoneValue.length >= 12 && phoneValue.length <= 15) validPhone = true;
+      if (phoneValue.startsWith('+44') && phoneValue.length === 13) validPhone = true;
+      if (phoneValue.startsWith('+49') && phoneValue.length >= 12 && phoneValue.length <= 14) validPhone = true;
+
+      if (!validPhone) {
+        alert('Érvénytelen telefonszám!');
+        return;
+      }
+
+      // Regisztrált felhasználók tárolása localStorage-ban
+      const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+      
+      // Ellenőrizzük, létezik-e már az e-mail
+      if (registeredUsers.some(u => u.email === email)) {
+        alert('Ez az e-mail már regisztrálva van!');
+        return;
+      }
+
+      // Új felhasználó hozzáadása
+      const newUser = { firstName, lastName, email, phone, password };
+      registeredUsers.push(newUser);
+      localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+
+      // Automatikus bejelentkezés regisztráció után
+      localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+
+      alert('Sikeres regisztráció! Kérlek válassz előfizetési csomagot a folytatáshoz.');
+      window.location.href = 'subscription.html';
+    });
+  </script>
+</body>
+</html>
+
